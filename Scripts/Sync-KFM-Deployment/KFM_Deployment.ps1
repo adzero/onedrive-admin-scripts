@@ -1,35 +1,68 @@
-<#       
-    .DESCRIPTION
-        Script to gather KFM state that can help KFM planning and deployment.
+<#PSScriptInfo
 
-        The sample scripts are not supported under any Microsoft standard support 
-        program or service. The sample scripts are provided AS IS without warranty  
-        of any kind. Microsoft further disclaims all implied warranties including,  
-        without limitation, any implied warranties of merchantability or of fitness for 
-        a particular purpose. The entire risk arising out of the use or performance of  
-        the sample scripts and documentation remains with you. In no event shall 
-        Microsoft, its authors, or anyone else involved in the creation, production, or 
-        delivery of the scripts be liable for any damages whatsoever (including, 
-        without limitation, damages for loss of business profits, business interruption, 
-        loss of business information, or other pecuniary loss) arising out of the use 
-        of or inability to use the sample scripts or documentation, even if Microsoft 
-        has been advised of the possibility of such damages.
-        
-        Author: Carter Green - cagreen@microsoft.com
-        
-        Deployment Guidance: https://docs.microsoft.com/en-us/onedrive/redirect-known-folders        
+.VERSION 1.0.0
+
+.GUID 3da51921-69c1-4f2e-8ce5-bc21a015c38e
+
+.AUTHOR Carter Green - cagreen@microsoft.com
+
+.COMPANYNAME
+
+.COPYRIGHT
+
+.TAGS
+
+.LICENSEURI
+
+.PROJECTURI https://github.com/OneDrive/onedrive-admin-scripts
+
+.ICONURI
+
+.EXTERNALMODULEDEPENDENCIES 
+
+.REQUIREDSCRIPTS
+
+.EXTERNALSCRIPTDEPENDENCIES
+
+.RELEASENOTES
+
+.PRIVATEDATA
+
 #>
-#CODE STARTS HERE
 
+<#
+.SYNOPSIS
+ Script to gather KFM state that can help KFM planning and deployment.
 
-#TenantID is now a required parameter. Use -GivenTenantID to set TenantID, e.g. "-GivenTenantID =  'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'"
-#OutputPath is now a required parameter. Use -OutputPath to designate location for logs, e.g. "-OutputPath = 'C:\...\Desktop\' + $env:USERNAME + "_" + $env:COMPUTERNAME + '.txt'"
-#Parameters will now be asked for upon execution of the script if not provided in the command line that runs the script.
+.DESCRIPTION
+ Script to gather KFM state that can help KFM planning and deployment.
+
+ The sample scripts are not supported under any Microsoft standard support program or service. 
+ The sample scripts are provided AS IS without warranty of any kind. 
+ Microsoft further disclaims all implied warranties including, without limitation, any implied warranties of merchantability or of fitness for a particular purpose. 
+ The entire risk arising out of the use or performance of the sample scripts and documentation remains with you. 
+ In no event shall Microsoft, its authors, or anyone else involved in the creation, production, or delivery of the scripts be liable for any damages whatsoever (including, without limitation, damages for loss of business profits, business interruption, loss of business information, or other pecuniary loss) arising out of the use of or inability to use the sample scripts or documentation, even if Microsoft has been advised of the possibility of such damages. 
+ 
+.PARAMETER GivenTenantID
+ Specify the tenant ID. 
+
+.PARAMETER OutputPath
+ Specify the output path for log files.
+
+.INPUTS
+ None
+
+.OUTPUTS
+ None
+
+.LINK
+ https://docs.microsoft.com/en-us/onedrive/redirect-known-folders
+ 
+#>
 param(
     [parameter(Mandatory=$true, HelpMessage="Specify the tenant ID, e.g. xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")]
     [ValidateNotNullOrEmpty()]
     [string]$GivenTenantID,
-
     [parameter(Mandatory=$true, HelpMessage='Specify the output path for log files. Example file path: C:\...\Desktop\ + $env:USERNAME + "_" + $env:COMPUTERNAME + ".txt" ')]
     [ValidateNotNullOrEmpty()]
     [string]$OutputPath
